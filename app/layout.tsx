@@ -1,29 +1,19 @@
 import type { Metadata } from "next";
-import { Rufina, Noto_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const rufina = Rufina({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-display",
-});
-
-const notoSans = Noto_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-body",
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "JV Plumbing | Sacramento Licensed Plumber — 5 Stars Since 2017",
+  title: "JV Plumbing | Sacramento Plumber — Fair Prices, 5-Star Rated Since 2017",
   description:
-    "JV Plumbing — Sacramento's trusted, CA-licensed plumber since 2017. Perfect 5-star rating. Fair prices, on time, every time. Call Jesus Hernandez at (916) 591-8748.",
+    "JV Plumbing — Sacramento's trusted licensed plumber since 2017. Fair prices, on time, 5-star rated. Call Jesus Hernandez at (916) 591-8748.",
   keywords:
-    "plumber Sacramento, licensed plumber Sacramento, drain clearing Sacramento, pipe repair Sacramento, JV Plumbing, 5 star plumber Sacramento",
+    "plumber Sacramento, licensed plumber Sacramento, drain clearing Sacramento, pipe repair Sacramento, JV Plumbing",
   openGraph: {
-    title: "JV Plumbing | 5-Star Sacramento Plumber Since 2017",
+    title: "JV Plumbing | Sacramento Plumber — 5 Stars Since 2017",
     description:
-      "CA-licensed, perfect 5-star rating. Fair prices, always on time. Call (916) 591-8748.",
+      "Sacramento's licensed plumber. Fair prices, on time, 5-star rated. Call (916) 591-8748.",
     type: "website",
     locale: "en_US",
   },
@@ -35,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${rufina.variable} ${notoSans.variable}`}>
+    <html lang="en">
       <head>
         <script
           type="application/ld+json"
@@ -57,7 +47,15 @@ export default function RootLayout({
               openingHoursSpecification: [
                 {
                   "@type": "OpeningHoursSpecification",
-                  dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+                  dayOfWeek: [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday",
+                  ],
                   opens: "07:00",
                   closes: "19:00",
                 },
@@ -68,9 +66,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body style={{ fontFamily: "var(--font-body), system-ui, sans-serif" }}>
-        {children}
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

@@ -1,224 +1,124 @@
-"use client";
-
-function PhoneIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 2.98 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92z"/>
-    </svg>
-  );
-}
-
-function ShieldIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-    </svg>
-  );
-}
-
-function StarIcon({ filled = true }: { filled?: boolean }) {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill={filled ? "currentColor" : "none"} stroke="currentColor" strokeWidth={filled ? "0" : "2"} aria-hidden="true">
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-    </svg>
-  );
-}
-
-function CheckCircleIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
-    </svg>
-  );
-}
-
-const services = [
-  {
-    title: "Clean Out Installation",
-    desc: "Professional installation of plumbing clean outs for easy drain access and future maintenance. Quick, efficient, done right.",
-  },
-  {
-    title: "Drain Clearing",
-    desc: "Blocked or slow drains throughout the home. Jesus gets to the source — no temporary fixes, no repeat calls.",
-  },
-  {
-    title: "Pipe Repair",
-    desc: "Leaking or damaged pipes identified and repaired. Thorough work the first time so you don't need a second visit.",
-  },
-  {
-    title: "General Plumbing",
-    desc: "Full-range residential service: fixtures, water lines, general maintenance. Available 7 days a week, 7am to 7pm.",
-  },
-];
-
 export default function Home() {
   return (
-    <main style={{ background: "var(--bg)", color: "var(--text-primary)", minHeight: "100dvh" }}>
-
+    <main className="min-h-screen bg-white text-slate-900">
       {/* Nav */}
-      <nav
-        style={{ background: "var(--bg)", borderBottom: "1px solid var(--border)" }}
-        className="sticky top-0 z-50 px-6 py-3.5 flex items-center justify-between"
-      >
+      <nav className="bg-slate-800 text-white px-6 py-4 flex items-center justify-between sticky top-0 z-50">
         <div className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center text-white font-black text-base">
+            JV
+          </div>
           <div>
-            <div
-              className="font-bold text-base leading-tight"
-              style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
-            >
-              JV Plumbing
-            </div>
-            <div className="text-xs" style={{ color: "var(--text-muted)" }}>Licensed · Sacramento, CA · Since 2017</div>
+            <div className="font-bold text-sm leading-tight">JV Plumbing</div>
+            <div className="text-amber-400 text-xs">Sacramento, CA — Since 2017</div>
           </div>
         </div>
         <a
           href="tel:9165918748"
-          className="flex items-center gap-2 font-semibold px-4 py-2 rounded text-sm active:scale-97"
-          style={{
-            background: "var(--accent)",
-            color: "white",
-            transition: "background 160ms ease-out, transform 160ms ease-out",
-          }}
-          onMouseEnter={e => (e.currentTarget.style.background = "var(--accent-hover)")}
-          onMouseLeave={e => (e.currentTarget.style.background = "var(--accent)")}
-          aria-label="Call JV Plumbing at (916) 591-8748"
+          className="bg-amber-500 hover:bg-amber-600 text-white font-bold px-4 py-2 rounded-lg text-sm transition-colors"
         >
-          <PhoneIcon />
           (916) 591-8748
         </a>
       </nav>
 
       {/* Hero */}
-      <section className="px-6 pt-20 pb-16 md:pt-28 md:pb-24">
-        <div className="max-w-5xl mx-auto">
-          {/* Rating badge */}
-          <div
-            className="animate-fade-in inline-flex items-center gap-2 text-sm font-semibold px-3 py-1.5 rounded-full mb-10"
-            style={{ background: "var(--accent-light)", color: "var(--accent)" }}
-          >
-            <span className="flex" style={{ color: "var(--accent)" }}>
-              {[...Array(5)].map((_, i) => <StarIcon key={i} />)}
-            </span>
-            Perfect 5.0 on Google
+      <section className="bg-slate-800 text-white py-20 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-block bg-amber-500 text-white text-sm font-bold px-4 py-1 rounded-full mb-6">
+            5-STAR RATED — LICENSED — SINCE 2017
           </div>
-
-          <h1
-            className="animate-fade-up delay-1 text-5xl md:text-7xl font-bold leading-none mb-6"
-            style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.02em" }}
-          >
-            Sacramento plumbing<br />
-            <span style={{ color: "var(--accent)" }}>done right.</span>
+          <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
+            Sacramento Plumbing{" "}
+            <span className="text-amber-400">Done Right.</span>
           </h1>
-
-          <div className="grid md:grid-cols-[1fr_320px] gap-12 items-start mt-12">
-            <div>
-              <p
-                className="animate-fade-up delay-2 text-lg leading-relaxed mb-8 max-w-lg"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                Jesus Hernandez has run JV Plumbing since 2017 with a simple standard: fair price,
-                show up on time, do the job right. Nine years and a perfect rating later — it still works.
-              </p>
-              <div className="animate-fade-up delay-3 flex flex-wrap gap-3">
-                <a
-                  href="tel:9165918748"
-                  className="flex items-center gap-2 font-semibold px-6 py-3.5 rounded text-base text-white active:scale-97"
-                  style={{
-                    background: "var(--accent)",
-                    transition: "background 160ms ease-out, transform 160ms ease-out",
-                  }}
-                  onMouseEnter={e => (e.currentTarget.style.background = "var(--accent-hover)")}
-                  onMouseLeave={e => (e.currentTarget.style.background = "var(--accent)")}
-                >
-                  <PhoneIcon />
-                  Call (916) 591-8748
-                </a>
-                <a
-                  href="#services"
-                  className="font-medium px-6 py-3.5 rounded text-base active:scale-97"
-                  style={{
-                    border: "1px solid var(--border)",
-                    color: "var(--text-secondary)",
-                    transition: "border-color 160ms ease-out, color 160ms ease-out, transform 160ms ease-out",
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.borderColor = "var(--accent)";
-                    e.currentTarget.style.color = "var(--accent)";
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.borderColor = "var(--border)";
-                    e.currentTarget.style.color = "var(--text-secondary)";
-                  }}
-                >
-                  Services
-                </a>
-              </div>
-            </div>
-
-            {/* Stats panel */}
-            <div
-              className="animate-fade-up delay-2 rounded-2xl p-6 space-y-5"
-              style={{ background: "var(--bg-surface)", border: "1px solid var(--border)" }}
+          <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+            JV Plumbing — fair prices, on time, every time. Jesus Hernandez and his team have served
+            Sacramento with professional, 5-star plumbing since 2017. Licensed and trusted.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:9165918748"
+              className="bg-amber-500 hover:bg-amber-600 text-white font-bold px-8 py-4 rounded-xl text-lg transition-colors"
             >
-              {[
-                { value: "5.0", label: "Google rating" },
-                { value: "2017", label: "Year founded" },
-                { value: "CA", label: "Licensed plumber" },
-                { value: "7×7", label: "Days × hours (7am–7pm)" },
-              ].map(({ value, label }) => (
-                <div key={label} className="flex items-baseline justify-between">
-                  <span
-                    className="text-3xl font-bold"
-                    style={{ fontFamily: "var(--font-display)", color: "var(--accent)" }}
-                  >
-                    {value}
-                  </span>
-                  <span className="text-sm" style={{ color: "var(--text-muted)" }}>{label}</span>
-                </div>
-              ))}
-            </div>
+              Call (916) 591-8748
+            </a>
+            <a
+              href="#services"
+              className="border-2 border-amber-400 text-amber-400 hover:bg-amber-400 hover:text-slate-900 font-bold px-8 py-4 rounded-xl text-lg transition-colors"
+            >
+              Our Services
+            </a>
           </div>
         </div>
       </section>
 
-      {/* License callout */}
-      <div style={{ background: "var(--accent-light)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
-        <div className="max-w-5xl mx-auto px-6 py-4">
-          <div className="flex flex-wrap items-center gap-x-8 gap-y-2 text-sm">
-            <div className="flex items-center gap-2 font-semibold" style={{ color: "var(--accent)" }}>
-              <ShieldIcon />
-              California Licensed Plumber
-            </div>
-            <span style={{ color: "var(--text-muted)" }}>BuildZoom Score: 92</span>
-            <span style={{ color: "var(--text-muted)" }}>Active license since 2017</span>
-            <span style={{ color: "var(--text-muted)" }}>Alternate line: (916) 287-6942</span>
+      {/* Trust Bar */}
+      <section className="bg-amber-500 text-white py-4 px-6">
+        <div className="max-w-4xl mx-auto flex flex-wrap gap-6 justify-center items-center text-sm font-bold">
+          <div>5-Star Google Rating</div>
+          <div className="hidden sm:block w-px h-4 bg-amber-300" />
+          <div>CA Licensed Plumber</div>
+          <div className="hidden sm:block w-px h-4 bg-amber-300" />
+          <div>Serving Sacramento Since 2017</div>
+          <div className="hidden sm:block w-px h-4 bg-amber-300" />
+          <div>Mon to Sun: 7am to 7pm</div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="py-12 px-6 bg-slate-50">
+        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="bg-white rounded-xl p-5 shadow-sm">
+            <div className="text-4xl font-black text-amber-500">5.0</div>
+            <div className="text-slate-600 text-sm mt-1">Google Stars</div>
+          </div>
+          <div className="bg-white rounded-xl p-5 shadow-sm">
+            <div className="text-4xl font-black text-amber-500">9+</div>
+            <div className="text-slate-600 text-sm mt-1">Years in Business</div>
+          </div>
+          <div className="bg-white rounded-xl p-5 shadow-sm">
+            <div className="text-4xl font-black text-amber-500">CA</div>
+            <div className="text-slate-600 text-sm mt-1">Licensed Plumber</div>
+          </div>
+          <div className="bg-white rounded-xl p-5 shadow-sm">
+            <div className="text-4xl font-black text-amber-500">Fair</div>
+            <div className="text-slate-600 text-sm mt-1">Transparent Pricing</div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Services */}
-      <section id="services" className="px-6 py-20 md:py-28">
-        <div className="max-w-5xl mx-auto">
-          <h2
-            className="text-3xl md:text-5xl font-bold mb-12"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            Services.
-          </h2>
-          <div className="grid md:grid-cols-2 gap-5">
-            {services.map((s, i) => (
-              <div
-                key={s.title}
-                className={`rounded-xl p-6 animate-fade-up delay-${i + 1}`}
-                style={{ background: "var(--bg-surface)", border: "1px solid var(--border)" }}
-              >
-                <div className="flex items-start gap-3 mb-2">
-                  <div className="mt-0.5 shrink-0" style={{ color: "var(--accent)" }}>
-                    <CheckCircleIcon />
-                  </div>
-                  <h3 className="font-semibold text-lg">{s.title}</h3>
-                </div>
-                <p className="text-sm leading-relaxed pl-7" style={{ color: "var(--text-secondary)" }}>{s.desc}</p>
+      <section id="services" className="py-16 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black mb-3">
+              Plumbing Services in <span className="text-amber-500">Sacramento</span>
+            </h2>
+            <p className="text-slate-600 text-lg">
+              Residential plumbing — done right, on time, at fair prices
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                title: "Clean Out Installation",
+                desc: "Professional installation of plumbing clean outs for easy drain access and maintenance. Work completed quickly and efficiently — Jesus gets the job done right.",
+              },
+              {
+                title: "Drain Clearing",
+                desc: "Clearing of blocked and slow drains throughout your home. Fast, no-fuss service that gets your plumbing flowing again.",
+              },
+              {
+                title: "Pipe Repair",
+                desc: "Repair of leaking or damaged pipes. JV Plumbing identifies the source fast and fixes it properly — no shortcuts.",
+              },
+              {
+                title: "General Plumbing",
+                desc: "Full range of residential plumbing services including fixtures, water lines, and general maintenance. 7 days a week availability.",
+              },
+            ].map((s) => (
+              <div key={s.title} className="p-6 bg-slate-50 rounded-xl border-l-4 border-amber-500">
+                <h3 className="font-bold text-lg mb-2">{s.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -226,150 +126,117 @@ export default function Home() {
       </section>
 
       {/* Reviews */}
-      <section
-        style={{ background: "var(--bg-surface)", borderTop: "1px solid var(--border)" }}
-        className="px-6 py-20"
-      >
-        <div className="max-w-5xl mx-auto">
-          <div className="mb-12">
-            <h2
-              className="text-3xl md:text-4xl font-bold mb-2"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Every review. 5 stars.
-            </h2>
-            <p style={{ color: "var(--text-secondary)" }}>
-              Not a single review below 5 stars in JV Plumbing&apos;s history on Google.
-            </p>
+      <section className="py-16 px-6 bg-slate-800 text-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-black mb-2">Perfect 5-Star Reviews</h2>
+            <div className="text-amber-400">Every Google review is 5 stars</div>
           </div>
-
           <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                quote: "I needed a new clean out installed and was impressed by how quickly JV Plumbing completed the job with full professionalism. Jesus got it done right and fast.",
-                credit: "Sacramento customer",
-              },
-              {
-                quote: "Fair pricing, responsible, and very professional and on time — exactly what you want from a plumber. JV Plumbing is who to call in Sacramento.",
-                credit: "Sacramento homeowner",
-              },
-            ].map((r, i) => (
-              <div key={i} className="rounded-xl p-7" style={{ background: "var(--bg)", border: "1px solid var(--border)" }}>
-                <div className="flex mb-4" style={{ color: "var(--accent)" }}>
-                  {[...Array(5)].map((_, j) => <StarIcon key={j} />)}
-                </div>
-                <p
-                  className="text-base leading-relaxed mb-4"
-                  style={{ fontFamily: "var(--font-display)", color: "var(--text-secondary)", fontStyle: "italic" }}
-                >
-                  &ldquo;{r.quote}&rdquo;
-                </p>
-                <div className="text-xs" style={{ color: "var(--text-muted)" }}>— {r.credit} · Google</div>
-              </div>
-            ))}
+            <div className="bg-slate-700 rounded-xl p-6">
+              <div className="text-amber-400 text-xl font-bold mb-3">5 Stars</div>
+              <p className="text-slate-300 leading-relaxed italic text-sm">
+                &ldquo;I needed a new clean out installed and was impressed by how quickly JV Plumbing
+                completed the job with full professionalism. Jesus got it done right and fast.&rdquo;
+              </p>
+              <div className="mt-4 text-slate-400 text-xs">— Sacramento customer</div>
+            </div>
+            <div className="bg-slate-700 rounded-xl p-6">
+              <div className="text-amber-400 text-xl font-bold mb-3">5 Stars</div>
+              <p className="text-slate-300 leading-relaxed italic text-sm">
+                &ldquo;Fair pricing, responsible, and very professional and on time — exactly what you want
+                from a plumber. JV Plumbing is the one to call in Sacramento.&rdquo;
+              </p>
+              <div className="mt-4 text-slate-400 text-xs">— Sacramento homeowner</div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* About Jesus */}
-      <section className="px-6 py-20 md:py-28">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16">
-          <div>
-            <h2
-              className="text-3xl md:text-5xl font-bold leading-tight mb-6"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Meet Jesus Hernandez.
-            </h2>
-            <p className="text-base leading-relaxed mb-4" style={{ color: "var(--text-secondary)" }}>
-              Jesus Valentin Hernandez Mendoza founded JV Plumbing in 2017 because he believed
-              Sacramento homeowners deserved a plumber who showed up when they said they would —
-              and charged a price that made sense.
-            </p>
-            <p className="text-base leading-relaxed mb-4" style={{ color: "var(--text-secondary)" }}>
-              Nine years later, that philosophy hasn&apos;t changed. California-licensed with a BuildZoom
-              score of 92, Jesus is accountable to state standards and to every customer he serves.
-            </p>
-            <p className="text-base leading-relaxed mb-8" style={{ color: "var(--text-secondary)" }}>
-              Two contact numbers so you always get through: (916) 591-8748 and (916) 287-6942.
-              Available Monday through Sunday, 7am to 7pm.
-            </p>
-            <a
-              href="tel:9165918748"
-              className="inline-flex items-center gap-2 font-semibold px-6 py-3.5 rounded text-base text-white active:scale-97"
-              style={{
-                background: "var(--accent)",
-                transition: "background 160ms ease-out, transform 160ms ease-out",
-              }}
-              onMouseEnter={e => (e.currentTarget.style.background = "var(--accent-hover)")}
-              onMouseLeave={e => (e.currentTarget.style.background = "var(--accent)")}
-            >
-              <PhoneIcon />
-              Call (916) 591-8748
-            </a>
-          </div>
-          <div
-            className="rounded-2xl p-8 h-fit"
-            style={{ background: "var(--bg-surface)", border: "1px solid var(--border)" }}
-          >
-            <h3 className="font-bold text-lg mb-6" style={{ fontFamily: "var(--font-display)" }}>Contact</h3>
-            <div className="space-y-4 text-sm">
-              {[
-                { label: "Primary phone", value: "(916) 591-8748" },
-                { label: "Alternate phone", value: "(916) 287-6942" },
-                { label: "Location", value: "Sacramento, CA 95838" },
-                { label: "Hours", value: "Mon – Sun, 7:00am – 7:00pm" },
-                { label: "Founded", value: "2017" },
-                { label: "License", value: "California Licensed Plumber" },
-              ].map(({ label, value }) => (
-                <div key={label} className="flex justify-between gap-4">
-                  <span style={{ color: "var(--text-muted)" }}>{label}</span>
-                  <span className="font-medium text-right">{value}</span>
+      {/* About */}
+      <section className="py-16 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-black mb-4">
+                Meet <span className="text-amber-500">Jesus Hernandez</span> — Your Sacramento Plumber
+              </h2>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                Jesus Valentin Hernandez Mendoza founded JV Plumbing in 2017 with a simple promise:
+                fair prices, professional work, and always showing up on time. Nine years later,
+                the business holds a perfect 5-star rating and a strong reputation in Sacramento.
+              </p>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                Jesus is a California-licensed plumber (BuildZoom score 92) — meaning your work is
+                done by someone accountable to state standards, not just anyone with a wrench.
+              </p>
+              <p className="text-slate-600 leading-relaxed mb-6">
+                Available Monday through Sunday, 7am to 7pm. Two phone numbers for your convenience:
+                (916) 591-8748 or (916) 287-6942.
+              </p>
+              <a
+                href="tel:9165918748"
+                className="inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 py-3 rounded-lg transition-colors"
+              >
+                Call (916) 591-8748
+              </a>
+            </div>
+            <div className="bg-slate-800 rounded-2xl p-8 text-white">
+              <h3 className="font-bold text-lg mb-4 text-amber-400">Contact</h3>
+              <div className="space-y-3 text-slate-300 text-sm">
+                <div>Primary: (916) 591-8748</div>
+                <div>Alternate: (916) 287-6942</div>
+                <div>Sacramento, CA</div>
+              </div>
+              <div className="mt-6 pt-6 border-t border-slate-700">
+                <h3 className="font-bold text-lg mb-3 text-amber-400">Hours</h3>
+                <div className="space-y-1 text-slate-300 text-sm">
+                  <div>Monday to Sunday</div>
+                  <div>7:00am to 7:00pm</div>
                 </div>
-              ))}
+              </div>
+              <div className="mt-6 pt-6 border-t border-slate-700">
+                <h3 className="font-bold text-lg mb-3 text-amber-400">License</h3>
+                <div className="text-slate-300 text-sm">California Licensed Plumber</div>
+                <div className="text-slate-400 text-xs mt-1">BuildZoom Score: 92 — Active since 2017</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section style={{ background: "var(--accent)" }} className="px-6 py-16">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2" style={{ fontFamily: "var(--font-display)" }}>
-              Fair prices. On time. 5 stars.
-            </h2>
-            <p className="text-white/80 text-lg">Call Jesus today — Sacramento&apos;s most trusted licensed plumber.</p>
-          </div>
+      <section className="bg-amber-500 py-16 px-6 text-white text-center">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-black mb-4">
+            Fair Prices. On Time. 5 Stars.
+          </h2>
+          <p className="text-amber-100 text-lg mb-8">
+            JV Plumbing has served Sacramento since 2017. Call Jesus today for professional
+            plumbing at a price that makes sense.
+          </p>
           <a
             href="tel:9165918748"
-            className="shrink-0 inline-flex items-center gap-2 font-bold text-lg px-8 py-4 rounded-lg active:scale-97"
-            style={{
-              background: "white",
-              color: "var(--accent)",
-              transition: "opacity 160ms ease-out, transform 160ms ease-out",
-            }}
-            onMouseEnter={e => (e.currentTarget.style.opacity = "0.9")}
-            onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+            className="inline-block bg-white text-amber-600 font-black text-xl px-10 py-5 rounded-xl hover:bg-amber-50 transition-colors"
           >
-            <PhoneIcon />
             (916) 591-8748
           </a>
         </div>
       </section>
 
       {/* Footer */}
-      <footer
-        style={{ background: "var(--bg-surface)", borderTop: "1px solid var(--border)", color: "var(--text-muted)" }}
-        className="px-6 py-10"
-      >
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between gap-6 text-sm">
-          <div>
-            <div className="font-bold mb-1" style={{ color: "var(--text-primary)", fontFamily: "var(--font-display)" }}>JV Plumbing</div>
-            <div>949 North Ave Unit 4, Sacramento, CA 95838</div>
-            <a href="tel:9165918748" className="mt-1 block" style={{ color: "var(--accent)" }}>(916) 591-8748</a>
+      <footer className="bg-slate-900 text-slate-400 py-8 px-6 text-center text-sm">
+        <div className="max-w-4xl mx-auto">
+          <div className="font-bold text-white text-lg mb-1">JV Plumbing</div>
+          <div>949 North Ave Unit 4, Sacramento, CA 95838</div>
+          <div className="mt-2">
+            <a href="tel:9165918748" className="text-amber-400 hover:text-amber-300">
+              (916) 591-8748
+            </a>
           </div>
-          <div className="text-xs self-end">&copy; 2026 JV Plumbing. Licensed since 2017.</div>
+          <div className="mt-4 text-xs text-slate-600">
+            &copy; 2026 JV Plumbing. Sacramento, CA. Licensed since 2017.
+          </div>
         </div>
       </footer>
     </main>
